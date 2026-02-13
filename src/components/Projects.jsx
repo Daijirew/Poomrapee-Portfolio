@@ -19,9 +19,9 @@ const projects = [
         github: 'https://github.com/Daijirew/E-commerce-miniproject',
         description: 'A production-ready e-commerce platform built to demonstrate seamless integration between a Golang (Gin) backend and a React (Vite) frontend. The entire environment is orchestrated with Docker Compose, managed through Nginx reverse proxy, and automated with a CI/CD pipeline using GitHub Actions. Features include JWT authentication, role-based access control, shopping cart management, and end-to-end testing with Playwright.',
         images: [
-            'https://placehold.co/800x450/0ea5e9/ffffff?text=Pet+Food+E-commerce+Homepage',
-            'https://placehold.co/800x450/7c3aed/ffffff?text=Product+Catalog+Page',
-            'https://placehold.co/800x450/3b82f6/ffffff?text=Docker+Compose+Architecture',
+            '/assets/E-commerce 1.png',
+            '/assets/E-commerce 2.png',
+            '/assets/E-commerce 3.png',
         ],
     },
     {
@@ -38,9 +38,9 @@ const projects = [
         github: 'https://github.com/Daijirew/Portfolio-Software-Tester',
         description: 'A scalable End-to-End Automation Framework built during an internship at MapPointAsia Logistics Solutions (MLS). The framework uses Playwright and Node.js with a Page Object Model (POM) architecture, enabling Data-Driven Testing via JSON configurations. Integrated auto-retries and network idle strategies ensure high test stability across dynamic web environments and multiple business modules.',
         images: [
-            'blob:https://gemini.google.com/3c08be22-2aac-429f-8d32-76866374a7eb',
-            'blob:https://gemini.google.com/e8a773e9-391d-49d8-b328-72ade99a51f9',
-            'blob:https://gemini.google.com/68f2c0c4-2bb7-48da-acca-154e268e3361',
+            '/assets/Intern Test 1.png',
+            '/assets/Intern Test 2.png',
+            '/assets/Intern Test 3.png',
         ],
     },
     {
@@ -57,9 +57,9 @@ const projects = [
         github: 'https://github.com/Daijirew/ProjectCs',
         description: 'A cross-platform mobile application for connecting cat owners with trusted sitters. Built with Flutter and Dart for a seamless user experience across iOS and Android. Features real-time chat powered by Firebase Firestore, secure payments via Stripe API, geolocation services via Google Maps API, and serverless backend logic through Firebase Cloud Functions (Node.js).',
         images: [
-            'https://placehold.co/800x450/0ea5e9/ffffff?text=Cat+Sitter+App+Home',
-            'https://placehold.co/800x450/7c3aed/ffffff?text=Booking+Interface',
-            'https://placehold.co/800x450/3b82f6/ffffff?text=Real-time+Chat+Feature',
+            '/assets/Cat sitter 1.png',
+            '/assets/Cat sitter 2.png',
+            '/assets/Cat sitter 3.png',
         ],
     },
 ];
@@ -67,27 +67,32 @@ const projects = [
 export default function Projects() {
     const [selectedProject, setSelectedProject] = useState(null);
     const [currentImage, setCurrentImage] = useState(0);
+    const [imageError, setImageError] = useState(false);
 
     const openModal = (project) => {
         setSelectedProject(project);
         setCurrentImage(0);
+        setImageError(false);
         document.body.style.overflow = 'hidden';
     };
 
     const closeModal = () => {
         setSelectedProject(null);
         setCurrentImage(0);
+        setImageError(false);
         document.body.style.overflow = '';
     };
 
     const nextImage = () => {
         if (selectedProject) {
+            setImageError(false);
             setCurrentImage((prev) => (prev + 1) % selectedProject.images.length);
         }
     };
 
     const prevImage = () => {
         if (selectedProject) {
+            setImageError(false);
             setCurrentImage((prev) => (prev - 1 + selectedProject.images.length) % selectedProject.images.length);
         }
     };
@@ -151,11 +156,20 @@ export default function Projects() {
 
                         {/* Image Carousel */}
                         <div className="modal-carousel">
-                            <img
-                                src={selectedProject.images[currentImage]}
-                                alt={`${selectedProject.title} screenshot ${currentImage + 1}`}
-                                className="modal-image"
-                            />
+                            {!imageError ? (
+                                <img
+                                    src={selectedProject.images[currentImage]}
+                                    alt={`${selectedProject.title} screenshot ${currentImage + 1}`}
+                                    className="modal-image"
+                                    onError={() => setImageError(true)}
+                                />
+                            ) : (
+                                <div className="modal-image-fallback">
+                                    <span className="fallback-icon">{selectedProject.icon}</span>
+                                    <span className="fallback-text">{selectedProject.title}</span>
+                                    <span className="fallback-hint">วางรูปที่ public{selectedProject.images[currentImage]}</span>
+                                </div>
+                            )}
                             {selectedProject.images.length > 1 && (
                                 <>
                                     <button className="carousel-btn carousel-prev" onClick={prevImage} aria-label="Previous">

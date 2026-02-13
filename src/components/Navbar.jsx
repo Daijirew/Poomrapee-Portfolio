@@ -42,7 +42,7 @@ export default function Navbar() {
         <>
             <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
                 <div className="navbar-inner">
-                    <a href="#" className="navbar-logo">{'<PP />'}</a>
+                    <a href="#" className="navbar-logo">{'Poomrapee'}</a>
 
                     <ul className={`navbar-links ${menuOpen ? 'open' : ''}`}>
                         {navLinks.map((link) => (

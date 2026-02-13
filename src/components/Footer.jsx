@@ -6,7 +6,7 @@ export default function Footer() {
         <footer className="footer">
             <div className="container footer-inner">
                 <div>
-                    <div className="footer-brand">{'<PP />'}</div>
+                    <div className="footer-brand">{'Poomrapee'}</div>
                     <p className="footer-copy">
                         © {new Date().getFullYear()} Poomrapee Patum. Portfolio
                     </p>
