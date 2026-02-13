@@ -1,0 +1,122 @@
+.whyhire {
+    position: relative;
+    overflow: hidden;
+    background: var(--hero-gradient);
+}
+
+.whyhire-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    contain: strict;
+    pointer-events: none;
+}
+
+.whyhire-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    will-change: transform;
+}
+
+.whyhire-orb-1 {
+    width: 280px;
+    height: 280px;
+    background: var(--hero-orb-1);
+    top: -20%;
+    left: -10%;
+    animation: float-slow 9s ease-in-out infinite;
+}
+
+.whyhire-orb-2 {
+    width: 250px;
+    height: 250px;
+    background: var(--hero-orb-2);
+    bottom: -15%;
+    right: -5%;
+    animation: float-slow 11s ease-in-out infinite reverse;
+}
+
+.whyhire-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.whyhire-quote {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    line-height: 1.9;
+    margin-bottom: 3rem;
+    position: relative;
+    padding: 0 2rem;
+}
+
+.whyhire-quote::before {
+    content: '"';
+    position: absolute;
+    top: -1.5rem;
+    left: 0;
+    font-size: 4rem;
+    font-weight: 900;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.whyhire-points {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+}
+
+.whyhire-point {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.whyhire-point-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.whyhire-point h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+}
+
+.whyhire-point p {
+    font-size: 0.85rem;
+    color: var(--text-tertiary);
+    line-height: 1.5;
+}
+
+.whyhire-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 992px) {
+    .whyhire-points {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .whyhire-points {
+        grid-template-columns: 1fr;
+    }
+
+    .whyhire-quote {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+}
