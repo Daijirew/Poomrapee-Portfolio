@@ -5,12 +5,12 @@ const skillCategories = [
     {
         icon: '💻',
         title: 'Languages',
-        skills: ['Golang', 'JavaScript (ES6+)', 'TypeScript', 'SQL', 'Python'],
+        skills: ['Golang', 'JavaScript (ES6+)', 'TypeScript', 'SQL', 'Python', 'Java'],
     },
     {
         icon: '🎨',
         title: 'Frontend',
-        skills: ['React.js', 'Vite', 'Zustand', 'Tailwind CSS'],
+        skills: ['React.js', 'Next.js', 'Flutter', 'Dart', 'Vite', 'Zustand', 'Tailwind CSS'],
     },
     {
         icon: '⚙️',
@@ -30,7 +30,7 @@ const skillCategories = [
     {
         icon: '🧪',
         title: 'Quality Engineering',
-        skills: ['Playwright', 'k6', 'JMeter', 'Postman'],
+        skills: ['Playwright', 'Selenium', 'Robot Framework', 'Cypress', 'k6', 'JMeter', 'Postman'],
     },
 ];
 
