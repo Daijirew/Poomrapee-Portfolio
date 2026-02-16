@@ -1,0 +1,157 @@
+/* ============================================
+   RESUME POPUP — matches Project modal style
+   ============================================ */
+
+/* Overlay */
+.resume-popup-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    animation: fade-in 0.2s ease-out;
+}
+
+/* Card */
+.resume-popup {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    max-width: 480px;
+    width: 100%;
+    position: relative;
+    animation: modal-entrance 0.25s ease-out;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+    will-change: transform, opacity;
+}
+
+/* Body */
+.resume-popup-body {
+    padding: 2rem 2rem 1.75rem;
+}
+
+/* Title */
+.resume-popup-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.resume-popup-title svg {
+    color: var(--accent);
+}
+
+.resume-popup-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+/* Options */
+.resume-popup-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.resume-popup-option {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    background: var(--bg-glass);
+    text-decoration: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: border-color 0.25s, background 0.25s, transform 0.2s, box-shadow 0.25s;
+}
+
+.resume-popup-option:hover {
+    border-color: var(--accent);
+    background: var(--tag-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px var(--accent-glow);
+}
+
+.resume-popup-option-icon {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    border-radius: 14px;
+    background: var(--accent-gradient);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.resume-popup-option-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    flex: 1;
+    min-width: 0;
+}
+
+.resume-popup-option-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.resume-popup-option-desc {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.resume-popup-option-arrow {
+    flex-shrink: 0;
+    color: var(--text-secondary);
+    transition: color 0.2s, transform 0.2s;
+}
+
+.resume-popup-option:hover .resume-popup-option-arrow {
+    color: var(--accent);
+    transform: translateX(3px);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    .resume-popup-overlay {
+        padding: 1rem;
+        align-items: flex-end;
+    }
+
+    .resume-popup {
+        border-radius: 20px 20px 0 0;
+    }
+
+    .resume-popup-body {
+        padding: 1.5rem 1.25rem 1.25rem;
+    }
+
+    .resume-popup-option {
+        padding: 0.85rem 1rem;
+    }
+
+    .resume-popup-option-icon {
+        width: 44px;
+        height: 44px;
+    }
+
+    .resume-popup-option-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+}

@@ -1,4 +1,6 @@
 'use client';
+import { useState } from 'react';
+import ResumePopup from './ResumePopup';
 import './WhyHireMe.css';
 
 const points = [
@@ -25,6 +27,8 @@ const points = [
 ];
 
 export default function WhyHireMe() {
+    const [showResumePopup, setShowResumePopup] = useState(false);
+
     return (
         <section className="whyhire section" id="contact">
             <div className="whyhire-bg">
@@ -56,14 +60,14 @@ export default function WhyHireMe() {
                 </div>
 
                 <div className="whyhire-actions">
-                    <a href="/Resume - Poomrapee Dev.pdf" download className="btn btn-primary">
+                    <button onClick={() => setShowResumePopup(true)} className="btn btn-primary">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
                             <polyline points="7 10 12 15 17 10" />
                             <line x1="12" y1="15" x2="12" y2="3" />
                         </svg>
                         Download Resume
-                    </a>
+                    </button>
                     <a href="mailto:daijirew123@gmail.com" className="btn btn-secondary">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
@@ -72,6 +76,7 @@ export default function WhyHireMe() {
                         Get in Touch
                     </a>
                 </div>
+                <ResumePopup isOpen={showResumePopup} onClose={() => setShowResumePopup(false)} />
             </div>
         </section>
     );

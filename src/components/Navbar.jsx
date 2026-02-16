@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useTheme } from '@/context/ThemeContext';
+import ResumePopup from './ResumePopup';
 import './Navbar.css';
 
 const navLinks = [
@@ -14,6 +15,7 @@ export default function Navbar() {
     const { theme, toggleTheme } = useTheme();
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+    const [showResumePopup, setShowResumePopup] = useState(false);
     const rafRef = useRef(null);
     const scrolledRef = useRef(false);
 
@@ -51,14 +53,14 @@ export default function Navbar() {
                             </li>
                         ))}
                         <li>
-                            <a href="/Resume - Poomrapee Dev.pdf" download className="resume-btn-mobile">
+                            <button onClick={() => { closeMenu(); setShowResumePopup(true); }} className="resume-btn-mobile">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                     <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
                                     <polyline points="7 10 12 15 17 10" />
                                     <line x1="12" y1="15" x2="12" y2="3" />
                                 </svg>
                                 Download Resume
-                            </a>
+                            </button>
                         </li>
                     </ul>
 
@@ -67,14 +69,14 @@ export default function Navbar() {
                             {theme === 'light' ? '🌙' : '☀️'}
                         </button>
 
-                        <a href="/Resume - Poomrapee Dev.pdf" download className="resume-btn">
+                        <button onClick={() => setShowResumePopup(true)} className="resume-btn">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                 <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
                                 <polyline points="7 10 12 15 17 10" />
                                 <line x1="12" y1="15" x2="12" y2="3" />
                             </svg>
                             Resume
-                        </a>
+                        </button>
 
                         <button className={`hamburger ${menuOpen ? 'active' : ''}`} onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
                             <span></span>
@@ -85,6 +87,7 @@ export default function Navbar() {
                 </div>
             </nav>
             <div className={`mobile-overlay ${menuOpen ? 'active' : ''}`} onClick={closeMenu} />
+            <ResumePopup isOpen={showResumePopup} onClose={() => setShowResumePopup(false)} />
         </>
     );
 }
