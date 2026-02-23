@@ -16,15 +16,17 @@ const resumeOptions = [
         description: 'Development & Engineering focused resume',
     },
     {
-        title: 'Quality Assurance',
+        title: 'DevOps Engineer',
         iconPath: (
             <>
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                <polyline points="9 12 11 14 15 10" />
+                <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
+                <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
+                <line x1="6" y1="6" x2="6.01" y2="6" />
+                <line x1="6" y1="18" x2="6.01" y2="18" />
             </>
         ),
-        file: '/Resume - Poomrapee QA.pdf',
-        description: 'Quality Assurance & Testing focused resume',
+        file: '/Resume - Poomrapee DevOps.pdf',
+        description: 'DevOps & Infrastructure focused resume',
     },
 ];
 

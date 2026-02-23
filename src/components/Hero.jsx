@@ -2,7 +2,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import './Hero.css';
 
-const titles = ['Software Engineer', 'Full-Stack Developer', 'Quality Assurance'];
+const titles = ['DevOps Engineer', 'Software Engineer', 'Full-Stack Developer'];
 const TYPE_SPEED = 80;
 const DELETE_SPEED = 50;
 const PAUSE_DELAY = 1500;
