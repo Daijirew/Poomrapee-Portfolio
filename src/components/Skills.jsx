@@ -20,7 +20,7 @@ const skillCategories = [
     {
         icon: '☁️',
         title: 'Cloud & Infrastructure',
-        skills: ['Docker', 'Docker Compose', 'Nginx', 'Supabase (PostgreSQL)'],
+        skills: ['Docker', 'Docker Compose', 'AWS', 'Openlandscape Cloud', 'Nginx', 'Supabase (PostgreSQL)'],
     },
     {
         icon: '🔄',
